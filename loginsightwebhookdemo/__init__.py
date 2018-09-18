@@ -71,7 +71,7 @@ def parse(request):
         payload = request.get_json()
         if (payload is None):
             logging.exception("Payload is empty, did you specify a Header in the request?")
-            raise
+            raise ValueError('Empty payload')
         alert = {}
         alert = parseLI(payload, alert)
         alert = parsevROps(payload, alert)
@@ -295,3 +295,4 @@ import loginsightwebhookdemo.vrealizeorchestrator
 import loginsightwebhookdemo.zendesk
 import loginsightwebhookdemo.moogsoft
 import loginsightwebhookdemo.msteams
+import loginsightwebhookdemo.wxteams
